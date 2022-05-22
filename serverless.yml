@@ -16,5 +16,5 @@ functions:
     events:
       - iot:
           name: 'deviceInfoEvent'
-          sql: "SELECT * FROM 'cloud/device'"
+          sql: "SELECT * FROM 'service/device'"
           sqlVersion: '2016-03-23'
