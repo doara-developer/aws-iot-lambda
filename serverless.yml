@@ -8,7 +8,13 @@ provider:
   name: aws
   runtime: python3.9
   region: ${opt:region, self:custom.defaultRegion}
+  logRetentionInDays: 7
 
 functions:
   deviceInfo:
     handler: src/handler.lambda_handler
+    events:
+      - iot:
+          name: 'deviceInfoEvent'
+          sql: "SELECT * FROM 'cloud/device'"
+          sqlVersion: '2016-03-23'
